@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: spring-hello-rs
+  labels: 
+    app: spring-hello-app-rs
+    type: front-end
+
+spec: 
+  template:
+    metadata:
+      name: spring-hello-app
+      labels: 
+        app: spring-hello-app-pod
+        type: front-end-app-pod
+    spec:
+      containers:
+      - name: spring-hello-app
+        image: spring-hello/1.2
+        imagePullPolicy: Never
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-hello-app-pod

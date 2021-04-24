@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+  name: spring-hello-rc
+  labels: 
+    app: spring-hello-app
+    type: front-end
+spec: 
+  template:
+    metadata:
+      name: spring-hello-rc
+      labels: 
+        app: spring-hello-app
+        type: front-end
+    spec:
+      containers:
+      - name: spring-hello-app
+        image: spring-hello
+        imagePullPolicy: Never
+  replicas: 3
