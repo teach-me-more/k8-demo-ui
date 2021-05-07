@@ -16,3 +16,6 @@ phases:
 artifacts:
   files:
     - target/spring-hello.jar
+    - appspec.yml
+    - scripts/*
+   
