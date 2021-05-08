@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: spring-hello.jar
-    destination: /var/java-app/app.jar
+    destination: /home/ec2-user/my-app
 permissions:
   - object: /
     pattern: "**"
@@ -10,14 +10,14 @@ permissions:
     group: ec2-user
 hooks:
   BeforeInstall:
-    - location: scripts/install_dependencies.sh
+    - location: scripts/install-dependencies.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start_app.sh
+    - location: scripts/start-app.sh
       timeout: 300
       runas: ec2-user
-#  ApplicationStop:
-#    - location: scripts/stop_app.sh
-#      timeout: 300
-#      runas: ec2-user
+  ApplicationStop:
+    - location: scripts/stop-app.sh
+      timeout: 300
+      runas: ec2-user
