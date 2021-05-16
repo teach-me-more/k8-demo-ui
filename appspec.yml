@@ -4,8 +4,8 @@ files:
   - source: spring-hello.jar
     destination: /home/ec2-user/
 hooks:
-
+  
   ApplicationStart:
     - location: scripts/start-app.sh
-      timeout: 300
+      timeout: 100
       runas: ec2-user
